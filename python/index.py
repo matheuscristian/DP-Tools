@@ -1,6 +1,6 @@
 from pyautogui import typewrite, press
 from threading import Thread
-from os import get_terminal_size
+from os import system
 from time import sleep
 
 STOP = False
@@ -21,7 +21,7 @@ def readconfig():
 
 
 def title():
-    print("\n" * get_terminal_size().lines)
+    system("clear")
     print(" ######   ######       #######                                 ")
     print(" #     #  #     #         #      ####    ####   #        ####  ")
     print(" #     #  #     #         #     #    #  #    #  #       #      ")
