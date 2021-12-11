@@ -8,6 +8,7 @@ config = {}
 
 PATH = "."
 
+
 def readconfig():
     conf = open(f"{PATH}/.config", "r", encoding="utf8")
     conf = conf.readlines()
@@ -62,7 +63,8 @@ def main():
         STOP = True
     elif (ans.lower() == "2"):
         title()
-        ans = input("Configuration Screen\n\t1) delay_to_init\n\t2) spam_delay\n\t3) Back\nAnswer: ")
+        ans = input(
+            "Configuration Screen\n\t1) delay_to_init\n\t2) spam_delay\n\t3) Back\nAnswer: ")
 
         if (ans.lower() == "1"):
             title()
@@ -85,11 +87,11 @@ def main():
         conf.close()
         main()
     elif (ans.lower() == "3"):
-    	message = open(f"{PATH}/message.txt", "w", encoding="utf8")
-    	ans = input("Enter new message: ")
-    	message.write(ans)
-    	message.close()
-    	main()
+        message = open(f"{PATH}/message.txt", "w", encoding="utf8")
+        ans = input("Enter new message: ")
+        message.write(ans)
+        message.close()
+        main()
     else:
         exit()
 
