@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/matheus/Documents/Projects/DP-Tools/env"
+VIRTUAL_ENV="/home/matheus/Documents/Projects/DP-Tools-2.0/env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

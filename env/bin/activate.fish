@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/matheus/Documents/Projects/DP-Tools/env"
+set -gx VIRTUAL_ENV "/home/matheus/Documents/Projects/DP-Tools-2.0/env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
