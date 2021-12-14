@@ -14,7 +14,7 @@ To run the program, just open the file: `DP-Tools.sh`, and the program will star
 ## On windows or Mac
 To run the program on Windows or Mac, just open the file: `src/index.py`, and the program will start.
 
-### Warning
+## Warnings
 Don't exclude any file from the project: `message.txt` or `dp.config` for example. If you do, the program will brake. 
 
 That's it!!! Be happy.
