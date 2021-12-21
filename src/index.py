@@ -6,6 +6,8 @@ from time import sleep
 from requests import post
 from random import randint
 
+printer = Printer()
+
 def title():
     system("clear")
     printer.print(" ######   ######       #######                                 ", "CYAN")
