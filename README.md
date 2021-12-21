@@ -1,4 +1,4 @@
-# DP Tools
+<img src="https://github.com/matheuscristian/DP-Tools/blob/master/icon.png" width="100px">
 ## A easier way to spam your friends.
 
 This is a project that i'm working to learn more.
