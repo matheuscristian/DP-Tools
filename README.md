@@ -1,4 +1,4 @@
-<img src="https://github.com/matheuscristian/DP-Tools/blob/master/icon.png" width="500px">
+<img src="https://github.com/matheuscristian/DP-Tools/blob/master/icon.png" width="400px">
 
 
 ## A easier way to spam your friends.
