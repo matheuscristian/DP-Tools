@@ -6,9 +6,6 @@ from time import sleep
 from requests import post
 from random import randint
 
-STOP = False
-printer = Printer()
-
 def title():
     system("clear")
     printer.print(" ######   ######       #######                                 ", "CYAN")
@@ -59,7 +56,6 @@ def main():
     config = Config("./dp.config")
     msg = Message("./message.txt")
     while True:
-        global STOP
         title()
         mainMenu()
         ans = input("\nSelect option: ")
