@@ -7,4 +7,4 @@ class Message():
         txt.write(s)
 
     def read(self):
-        return open(self.path, "r").readlines()
+        return open(self.path, "r").readline()

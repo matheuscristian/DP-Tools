@@ -1,1 +1,4 @@
-PyAutoGUI==0.9.53
+os
+time
+requests
+random

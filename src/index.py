@@ -3,8 +3,8 @@ from printer import Printer
 from configuration import Config
 from os import system
 from time import sleep
-from pyautogui import typewrite, press
-from threading import Thread
+from requests import post
+from random import randint
 
 STOP = False
 printer = Printer()
@@ -21,20 +21,27 @@ def title():
     printer.print("---------------------------------------------------------------", "RED")
 
 def spammer(msg: str, config: Config):
-    sleep(float(config.getValue("start_delay")))
+    token = input("Enter token: ")
+    channelID = input("Enter channel ID: ")
+    nonce = randint(100000000000000000,999999999999999999)  # input("Enter nonce: ")
+    msg = str(msg)
     while True:
-        global STOP
-        if STOP:
-            break
-        for word in msg:
-            typewrite(word)
-            press("enter")
-            sleep(float(config.getValue("spam_delay")))
+        header = {
+            "Authorization": token,
+        }
+        data = {
+            "content": msg,
+            "nonce": str(nonce),
+            "tts": "false"
+        }
+        nonce += 1
+        r = post(f"https://discord.com/api/v9/channels/{channelID}/messages",
+                 headers=header, json=data)
+        sleep(float(config.getValue("spam_delay")))
 
 def configureMenu():
     title()
     print("""1) spam_delay
-2) start_delay
 3) Back""")
 
 def mainMenu():
@@ -57,20 +64,17 @@ def main():
         mainMenu()
         ans = input("\nSelect option: ")
         if (ans == "1"):
-            process = Thread(target=spammer, args=(msg.read(), config,))
-            process.start()
-            input("Press enter key to stop...")
-            STOP = True
-            quit(0)
+            print("CTRL + C to quit.")
+            try:
+                spammer(msg.read(), config)
+            except:
+                quit(0)
         elif (ans == "2"):
             configureMenu()
             ans = input("\nSelect option: ")
             if (ans == "1"):
                 ans = inputCall()
                 config.setValue("spam_delay", ans)
-            elif (ans == "2"):
-                ans = inputCall()
-                config.setValue("start_delay", ans)
             else:
                 continue
             config.writeConfig()
