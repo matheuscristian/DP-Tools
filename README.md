@@ -7,6 +7,7 @@ Using this you can spam your friends in Discord.
 
 ## Dependencies
 - You need python 3.8 or greater installed on your computer
+- You need requests lib installed by pip
 
 ## Run
 To run the program, just open the file: `DP-Tools.sh`, and the program will start.

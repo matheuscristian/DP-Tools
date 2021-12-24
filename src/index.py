@@ -20,19 +20,13 @@ def title():
     printer.print("---------------------------------------------------------------", "RED")
 
 def spammer(msg: str, config: Config):
-    token = input("Enter token: ")
+    token = config.getValue("token")
     channelID = input("Enter channel ID: ")
     nonce = randint(100000000000000000,999999999999999999)  # input("Enter nonce: ")
     msg = str(msg)
+    header = {"Authorization": token.strip("\n")}
     while True:
-        header = {
-            "Authorization": token,
-        }
-        data = {
-            "content": msg,
-            "nonce": str(nonce),
-            "tts": "false"
-        }
+        data = {"content": msg,"nonce": str(nonce),"tts": "false"}
         nonce += 1
         r = post(f"https://discord.com/api/v9/channels/{channelID}/messages",
                  headers=header, json=data)
@@ -41,6 +35,7 @@ def spammer(msg: str, config: Config):
 def configureMenu():
     title()
     print("""1) spam_delay
+2) token
 3) Back""")
 
 def mainMenu():
@@ -63,16 +58,16 @@ def main():
         ans = input("\nSelect option: ")
         if (ans == "1"):
             print("CTRL + C to quit.")
-            try:
-                spammer(msg.read(), config)
-            except:
-                quit(0)
+            spammer(msg.read(), config)
         elif (ans == "2"):
             configureMenu()
             ans = input("\nSelect option: ")
             if (ans == "1"):
                 ans = inputCall()
                 config.setValue("spam_delay", ans)
+            elif (ans == "2"):
+                ans = inputCall()
+                config.setValue("token", ans.replace("\n", ""))
             else:
                 continue
             config.writeConfig()
@@ -85,4 +80,7 @@ def main():
             continue
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        quit(0)

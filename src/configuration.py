@@ -8,7 +8,7 @@ class Config:
         for data in configR:
             try:
                 values = data.split("=")
-                self.config[values[0]] = values[1]
+                self.config[values[0].strip("\n")] = values[1]
             except:
                 pass
 
