@@ -26,6 +26,7 @@ def spammer(msg: str, config: Config):
     msg = str(msg)
     header = {"Authorization": token.strip("\n")}
     if (token == "none"):
+        print("Set your token first.")
         quit(0)
     while True:
         data = {"content": msg,"nonce": str(nonce),"tts": "false"}
