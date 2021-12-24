@@ -25,6 +25,8 @@ def spammer(msg: str, config: Config):
     nonce = randint(100000000000000000,999999999999999999)  # input("Enter nonce: ")
     msg = str(msg)
     header = {"Authorization": token.strip("\n")}
+    if (token == "none"):
+        quit(0)
     while True:
         data = {"content": msg,"nonce": str(nonce),"tts": "false"}
         nonce += 1
